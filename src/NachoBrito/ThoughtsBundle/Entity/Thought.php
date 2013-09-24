@@ -4,12 +4,14 @@ namespace NachoBrito\ThoughtsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Thought
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="NachoBrito\ThoughtsBundle\Entity\ThoughtRepository")
+ * @Gedmo\Loggable
  */
 class Thought
 {
@@ -24,7 +26,8 @@ class Thought
 
     /**
      * @var string
-     *
+     * 
+     * @Gedmo\Versioned
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
@@ -32,6 +35,7 @@ class Thought
     /**
      * @var string
      *
+     * @Gedmo\Versioned
      * @ORM\Column(name="content", type="text")
      */
     private $content;
@@ -53,6 +57,25 @@ class Thought
      */
     private $contentChanged;
     
+    
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Thought", mappedBy="parent")
+     */
+    protected $children;    
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Thought", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
+     */
+    protected $parent;    
+    /**
+     * 
+     */
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+    }    
     
     /**
      * Get id
@@ -151,6 +174,48 @@ class Thought
         $this->contentChanged = $contentChanged;
         return $this;
     }
+
+    /**
+     * 
+     * @return type
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * 
+     * @param type $children
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setChildren($children)
+    {
+        $this->children = $children;
+        return $this;
+    }
+
+
+    /**
+     * 
+     * @return type
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * 
+     * @param type $parent
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
 
 
 }
