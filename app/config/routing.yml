@@ -1,0 +1,5 @@
+nacho_brito_thoughts:
+    resource: "@NachoBritoThoughtsBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
