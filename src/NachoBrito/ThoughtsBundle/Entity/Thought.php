@@ -3,6 +3,7 @@
 namespace NachoBrito\ThoughtsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Thought
@@ -35,7 +36,24 @@ class Thought
      */
     private $content;
 
+    /**
+     * @var datetime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;
 
+
+    /**
+     * @var datetime $contentChanged
+     *
+     * @ORM\Column(name="content_changed", type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="change", field={"title", "content"})
+     */
+    private $contentChanged;
+    
+    
     /**
      * Get id
      *
@@ -91,4 +109,48 @@ class Thought
     {
         return $this->content;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * 
+     * @return type
+     */
+    public function getContentChanged()
+    {
+        return $this->contentChanged;
+    }
+
+    
+    /**
+     * 
+     * @param \NachoBrito\ThoughtsBundle\Entity\datetime $created
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setCreated(datetime $created)
+    {
+        $this->created = $created;
+        return $this;
+    }
+
+    
+    /**
+     * 
+     * @param \NachoBrito\ThoughtsBundle\Entity\datetime $contentChanged
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setContentChanged(datetime $contentChanged)
+    {
+        $this->contentChanged = $contentChanged;
+        return $this;
+    }
+
+
 }
