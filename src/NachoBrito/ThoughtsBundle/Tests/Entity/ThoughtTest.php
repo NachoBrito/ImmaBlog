@@ -112,6 +112,9 @@ class ThoughtTest extends WebTestCase
         $this->assertTrue(is_numeric($t1->getId()));
         $this->assertTrue(is_numeric($t2->getId()));
         
+        $t3 = $this->em->getRepository('NachoBritoThoughtsBundle:Thought')->find($t2->getId());
+        $this->assertEquals($t3->getParent()->getId(),$t1->getId());
+        
         $this->em->remove($t2);
         $this->em->remove($t1);
         $this->em->flush();
