@@ -57,7 +57,12 @@ class Thought
      */
     private $contentChanged;
     
-    
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="public", type="boolean")
+     */
+    private $public;
     
     /**
      * @ORM\OneToMany(targetEntity="Thought", mappedBy="parent")
@@ -215,6 +220,27 @@ class Thought
         $this->parent = $parent;
         return $this;
     }
+
+    /**
+     * 
+     * @return bool
+     */
+    public function getPublic()
+    {
+        return $this->public;
+    }
+
+    /**
+     * 
+     * @param type $public
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setPublic($public)
+    {
+        $this->public = $public;
+        return $this;
+    }
+
 
 
 
