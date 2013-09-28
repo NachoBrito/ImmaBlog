@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{'immablog.title' |trans}}{% endblock %}
+
+{% block body %}
+{{ form(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts '@NachoBritoThoughtsBundle/Resources/public/js/edit/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

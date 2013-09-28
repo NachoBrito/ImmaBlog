@@ -18,6 +18,26 @@
                 <source>immablog.about</source>
                 <target>About Me</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>security.login.username</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>security.login.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>security.login.remember_me</source>
+                <target>Remember me</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>security.login.submit</source>
+                <target>Go!</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>immablog.title</source>
+                <target>Nacho Brito</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
