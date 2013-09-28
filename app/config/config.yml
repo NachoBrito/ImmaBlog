@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -115,4 +115,9 @@ stof_doctrine_extensions:
             timestampable: true
 bc_bootstrap:
     assets_dir:  %kernel.root_dir%/../vendor/twitter/bootstrap
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js            
+    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.9.1.js   
+    
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: NachoBrito\ThoughtsBundle\Entity\User    

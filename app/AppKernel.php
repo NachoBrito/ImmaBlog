@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new NachoBrito\ThoughtsBundle\NachoBritoThoughtsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

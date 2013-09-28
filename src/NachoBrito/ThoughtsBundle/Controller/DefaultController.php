@@ -2,11 +2,10 @@
 
 namespace NachoBrito\ThoughtsBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
 
     const FRONT_PAGE_THOUGHT_COUNT = 10;
@@ -26,7 +25,8 @@ class DefaultController extends Controller
         {
             $thoughts = $repo->getRecentThoughts(self::FRONT_PAGE_THOUGHT_COUNT);
             return array(
-                'thoughts' => $thoughts
+                'thoughts' => $thoughts,
+                'csrf_token' => $this->getCSRFToken()
             );
         }
     }

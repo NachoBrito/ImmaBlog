@@ -4,9 +4,14 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200,400' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ asset('css/boot_cosmo.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap_responsive_2.css') }}">
-        <link rel="stylesheet" href="{{ asset('bundles/nachobritothoughts/css/style.css') }}">
+
+        {% stylesheets '@NachoBritoThoughtsBundle/Resources/public/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}        
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -18,13 +23,29 @@
                 <div class="navbar">
                     <div class="navbar-inner">
                         <div class="container">
-                            <ul class="nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#">Projects</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Downloads</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
+                            <ul class="nav">                                
+                                <li class="active"><a href="#">{{'immablog.home'|trans}}</a></li>
+                                <li><a href="#">{{'immablog.contact'|trans}}</a></li>                               
+                                <li><a href="#">{{'immablog.about'|trans}}</a></li>                               
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">{{'immablog.signin' | trans}} <strong class="caret"></strong></a>
+                                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                                            <label for="username">{{ 'security.login.username'|trans }}</label>
+                                            <input type="text" id="username" name="_username" value="" required="required" />
+
+                                            <label for="password">{{ 'security.login.password'|trans }}</label>
+                                            <input type="password" id="password" name="_password" required="required" />
+
+                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+                                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                                        </form>                                        
+                                    </div>
+                                </li>                                
                             </ul>
                         </div>
                     </div>
@@ -34,7 +55,14 @@
             <hr>
 
             <div class="footer">
-                <p>&copy; Nacho Brito.</p>
+                <p>
+                    &copy; Nacho Brito.
+                    Thanks to:
+                    <a href='http://www.symfony.com' target='_blank'>Symfony</a>,
+                    <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>,
+                    {# <a href="http://bootswatch.com/cosmo/" target="_blank">Bootswatch</a>,#}
+                    <a href="http://jquery.com/" target="_blank">JQuery</a> and many others for creating such an amazing set of tools.
+                </p>
             </div>
 
         </div> <!-- /container -->                        

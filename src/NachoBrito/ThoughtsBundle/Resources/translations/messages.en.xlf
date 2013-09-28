@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>immablog.home</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>immablog.contact</source>
+                <target>Contact</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>immablog.signin</source>
+                <target>LogIn</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>immablog.about</source>
+                <target>About Me</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

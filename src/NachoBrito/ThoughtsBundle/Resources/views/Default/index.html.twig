@@ -4,15 +4,6 @@
 
 {% block body %}
 
-<!-- Jumbotron -->
-<div class="jumbotron">
-    <h1>Marketing stuff!</h1>
-    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    <a class="btn btn-large btn-success" href="#">Get started today</a>
-</div>
-
-<hr>
-
 <!-- Example row of columns -->
 <div class="row-fluid">
     <div class="span4">
@@ -32,15 +23,18 @@
     </div>
 </div>
 
-<div class="row-fluid">
-    <div class="span2">
+{% for entry in thoughts %}
+    <div class="row-fluid">
+        <div class="span2">
+            <span class='label label-success'>
+                {{entry.created|date()}}
+            </span>
+        </div>
+        <div class="span10">
 
+            <h2>{{ entry.title }}</h2>
+            <p>{{ entry.content | raw }}</p>
+        </div>
     </div>
-    <div class="span10">
-        {% for entry in thoughts %}
-        <h2>{{ entry.title }}</h2>
-        <p>{{ entry.content }}</p>
-        {% endfor %}
-    </div>
-</div>
+{% endfor %}
 {% endblock %}
