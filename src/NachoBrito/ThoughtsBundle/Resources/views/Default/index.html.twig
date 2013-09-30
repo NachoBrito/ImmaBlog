@@ -8,21 +8,40 @@
 {% endblock %}
 
 {% block body %}
+<div class="row-fluid">
+  <div class="span12">
+      <div class="row-fluid">
+      <div class="span10">
+          
+        {% if thoughts %}
+            {% for entry in thoughts %}
+            <div class="row-fluid">
+                <div class="span3">
+                    <span class='label label-success'>
+                        {{entry.created|date()}}
+                    </span>
+                </div>
+                <div class="span7">
 
-{% if thoughts %}
-    {% for entry in thoughts %}
-    <div class="row-fluid">
-        <div class="span2">
-            <span class='label label-success'>
-                {{entry.created|date()}}
-            </span>
-        </div>
-        <div class="span10">
-
-            <h2>{{ entry.title }}</h2>
-            <p>{{ entry.content | raw }}</p>
-        </div>
+                    <h2>{{ entry.title }}</h2>
+                    <p>{{ entry.content | raw }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+          
+      </div>
+      <div class="span2">
+<a class="twitter-timeline" href="https://twitter.com/nacho_brito" data-widget-id="384332457551462402">Tweets por @nacho_brito</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>      
+      </div>
     </div>
-    {% endfor %}
-{% endif %}
+      
+      
+      
+      
+
+
+  </div>
+</div>
 {% endblock %}

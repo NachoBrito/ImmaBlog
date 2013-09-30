@@ -20,9 +20,18 @@ class ThoughtType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title', 'text')
+        $builder->add('title', 'text', array(
+                    'attr' => array(
+                        'class' => 'span12'
+                    )
+                        )
+                )
                 ->add('content', new EditorType())
-                ->add('save', 'submit');
+                ->add('save', 'submit', array(
+                    'attr' => array(
+                        'class' => 'btn btn-primary'
+                    )
+        ));
     }
 
     /**

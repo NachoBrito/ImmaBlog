@@ -2,11 +2,13 @@ body {
     padding-top: 20px;
     padding-bottom: 60px;
 }
+a:hover #logo{text-decoration: none;}
 #logo{
+    color: #111;
     font-family: 'Raleway', sans-serif;
     font-size: 45px;
-    letter-spacing: -3px;
-    word-spacing: -8px;
+    letter-spacing: -4px;
+    word-spacing: -5px;
 }
 #logo #l1{
     margin: 0;

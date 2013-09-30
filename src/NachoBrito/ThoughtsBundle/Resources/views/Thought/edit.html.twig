@@ -1,12 +1,55 @@
 {% extends '::base.html.twig' %}
-{% block title %}{{'immablog.title' |trans}}{% endblock %}
 
-{% block body %}
-{{ form(form) }}
+{% block title %}{{'immablog.title' |trans}}{% endblock %}
+{% block body -%}
+<div class='row-fluid'>
+    {{ form_start(edit_form) }}
+    <legend>{{'immablog.content-editor' |trans}}</legend>
+    <label class='checkbox'>
+        {{ form_widget(edit_form.public) }} {{ form_label(edit_form.public) }}
+    </label>
+    <div class="control-group">
+        <label class="control-label">{{ form_label(edit_form.parent) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(edit_form.parent) }}</span>
+            {{ form_widget(edit_form.parent) }}
+        </div>
+    </div>    
+    <div class="control-group">
+        <label class="control-label">{{ form_label(edit_form.title) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(edit_form.title) }}</span>
+            {{ form_widget(edit_form.title,{ 'attr': {'class': 'span12'} }) }}
+        </div>
+    </div>    
+    <div class="control-group">
+        <label class="control-label">{{ form_label(edit_form.content) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(edit_form.content) }}</span>
+            {{ form_widget(edit_form.content) }}
+        </div>
+    </div>    
+    {{ form_widget(edit_form._token) }}
+    <div class="form-actions">
+        {{ form_widget(edit_form.submit,{ 'attr': {'class': 'btn btn-primary'} }) }}
+    </div>
+    {{ form_end(edit_form) }}
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('t') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>    
+</div>
 {% endblock %}
+
 
 {% block javascripts %}
-    {% javascripts '@NachoBritoThoughtsBundle/Resources/public/js/edit/*' %}
-    <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+{% javascripts '@NachoBritoThoughtsBundle/Resources/public/js/edit/*' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
 {% endblock %}
+
+

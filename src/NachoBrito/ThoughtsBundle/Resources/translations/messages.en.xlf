@@ -38,6 +38,10 @@
                 <source>immablog.title</source>
                 <target>Nacho Brito</target>
             </trans-unit>
+            <trans-unit id="10">
+                <source>immablog.content-editor</source>
+                <target>Content Editor</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

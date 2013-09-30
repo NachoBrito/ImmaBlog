@@ -62,7 +62,7 @@ class Thought
      *
      * @ORM\Column(name="public", type="boolean")
      */
-    private $public;
+    private $public = false;
     
     /**
      * @ORM\OneToMany(targetEntity="Thought", mappedBy="parent")
@@ -242,6 +242,13 @@ class Thought
     }
 
 
+    /**
+     * 
+     */
+    public function __toString()
+    {
+       return $this->title; 
+    }
 
 
 }

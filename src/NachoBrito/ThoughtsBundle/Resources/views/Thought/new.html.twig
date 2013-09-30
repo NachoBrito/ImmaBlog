@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+{% block title %}{{'immablog.title' |trans}}{% endblock %}
+{% block body -%}
+<div class='row-fluid'>
+    {{ form_start(form, {'method': 'POST'}) }}
+    <legend>{{'immablog.content-editor' |trans}}</legend>
+    <label class='checkbox'>
+        {{ form_widget(form.public) }} {{ form_label(form.public) }}
+    </label>
+    <div class="control-group">
+        <label class="control-label">{{ form_label(form.parent) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(form.parent) }}</span>
+            {{ form_widget(form.parent) }}
+        </div>
+    </div>    
+    <div class="control-group">
+        <label class="control-label">{{ form_label(form.title) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(form.title) }}</span>
+            {{ form_widget(form.title,{ 'attr': {'class': 'span12'} }) }}
+        </div>
+    </div>    
+    <div class="control-group">
+        <label class="control-label">{{ form_label(form.content) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(form.content) }}</span>
+            {{ form_widget(form.content) }}
+        </div>
+    </div>    
+    {{ form_widget(form._token) }}
+    <div class="form-actions">
+        {{ form_widget(form.submit,{ 'attr': {'class': 'btn btn-primary'} }) }}
+    </div>
+    {{ form_end(form) }}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{% javascripts '@NachoBritoThoughtsBundle/Resources/public/js/edit/*' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}

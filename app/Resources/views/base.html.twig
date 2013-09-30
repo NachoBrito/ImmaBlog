@@ -5,7 +5,8 @@
         <title>{% block title %}Welcome!{% endblock %}</title>    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='http://fonts.googleapis.com/css?family=Raleway:200,400' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{{ asset('css/boot_cosmo.min.css') }}">
+        <link href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset('css/bootstrap_responsive_2.css') }}">
 
         {% stylesheets '@NachoBritoThoughtsBundle/Resources/public/css/*' filter='cssrewrite' %}
@@ -17,9 +18,11 @@
     <body>
         <div class="container">
             <div class="masthead">
-                <h3 class="muted" id="logo">
-                    <span id="l1">Nacho</span> <span id="l2">Brito</span>
-                </h3>
+                <a href='/'>
+                    <h3 class="muted" id="logo">
+                        <span id="l1">Nacho</span> <span id="l2">Brito</span>
+                    </h3>
+                </a>
                 <div class="navbar">
                     <div class="navbar-inner">
                         <div class="container">
@@ -65,7 +68,7 @@
         </div> <!-- /container -->                        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="{{ asset('js/bootstrap.js') }}"></script>
-        
+
         {% javascripts '@NachoBritoThoughtsBundle/Resources/public/js/general/*' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

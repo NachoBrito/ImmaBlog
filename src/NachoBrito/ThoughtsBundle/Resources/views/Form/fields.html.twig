@@ -54,7 +54,7 @@
       <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
     </div>
     
-        <div id='{{ id }}_wisiwig' class='wisiwig_editor'></div>
+<div id='editor' class='wisiwig_editor' data-target='#{{ id }}'>{{ value |raw }}</div>
         {{ block('hidden_widget') }}
     {% endspaceless %}
 {% endblock %}
