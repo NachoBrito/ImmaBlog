@@ -32,6 +32,7 @@ class DefaultController extends AbstractController
             
         }
         $data['thoughts'] = $thoughts;
+        $data['csrf_token'] = $this->getCSRFToken();
         
         return $data;
     }

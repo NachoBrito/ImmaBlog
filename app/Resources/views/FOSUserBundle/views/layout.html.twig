@@ -29,40 +29,16 @@
                             <ul class="nav">                                
                                 <li class="active"><a href="#">{{'immablog.home'|trans}}</a></li>
                                 {% block navlinks %}{% endblock %}
-                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}                                
                                 <li>
-                                    <a href="{{path('fos_user_profile_edit')}}">
-                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
-                                    </a>
-                                </li>
-                                <li>
+                                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                                     <a href="{{ path('fos_user_security_logout') }}">
                                         {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                                     </a>
-                                </li>
-                                {% else %}
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">{{'immablog.signin' | trans}} <strong class="caret"></strong></a>
-                                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                                        <form action="{{ path("fos_user_security_check") }}" method="post">
-                                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-
-                                            <label for="username">{{ 'security.login.username'|trans }}</label>
-                                            <input type="text" id="username" name="_username" value="" required="required" />
-
-                                            <label for="password">{{ 'security.login.password'|trans }}</label>
-                                            <input type="password" id="password" name="_password" required="required" />
-
-                                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-                                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                                        </form>                                        
-                                    </div>
-                                </li> 
-                                {% endif %}
-
-
+                                    {% else %}
+                                    <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                                    {% endif %}
+                                </li>                                
                             </ul>
                         </div>
                     </div>
@@ -80,7 +56,7 @@
 
             {% block fos_user_content %}
             {% endblock fos_user_content %}
-            {% block body %}{% endblock %}            
+
             <hr>
 
             <div class="footer">
@@ -104,3 +80,4 @@
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
