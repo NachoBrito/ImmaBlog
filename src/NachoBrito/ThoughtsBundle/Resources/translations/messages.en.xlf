@@ -42,6 +42,14 @@
                 <source>immablog.content-editor</source>
                 <target>Content Editor</target>
             </trans-unit>
+            <trans-unit id="11">
+                <source>immablog.edit-thought</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>immablog.manage</source>
+                <target>Thoughts</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

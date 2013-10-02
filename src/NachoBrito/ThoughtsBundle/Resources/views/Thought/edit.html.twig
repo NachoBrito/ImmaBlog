@@ -23,6 +23,13 @@
         </div>
     </div>    
     <div class="control-group">
+        <label class="control-label">{{ form_label(edit_form.abstract) }}</label>
+        <div class="controls">
+            <span class='error'>{{ form_errors(edit_form.abstract) }}</span>
+            {{ form_widget(edit_form.abstract,{ 'attr': {'class': 'span12'} }) }}
+        </div>
+    </div>    
+    <div class="control-group">
         <label class="control-label">{{ form_label(edit_form.content) }}</label>
         <div class="controls">
             <span class='error'>{{ form_errors(edit_form.content) }}</span>

@@ -36,6 +36,14 @@ class Thought
      * @var string
      *
      * @Gedmo\Versioned
+     * @ORM\Column(name="abstract", type="text")
+     */
+    private $abstract;
+    
+    /**
+     * @var string
+     *
+     * @Gedmo\Versioned
      * @ORM\Column(name="content", type="text")
      */
     private $content;
@@ -73,7 +81,21 @@ class Thought
      * @ORM\ManyToOne(targetEntity="Thought", inversedBy="children")
      * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
-    protected $parent;    
+    protected $parent; 
+    
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+    
+    
+    /**
+     * @var string
+     * @ORM\Column(name="ext_ref", type="string", length=255)
+     */
+    private $externalRef;
+    
     /**
      * 
      */
@@ -250,5 +272,65 @@ class Thought
        return $this->title; 
     }
 
+    /**
+     * 
+     * @return type
+     */
+    public function getAbstract()
+    {
+        return $this->abstract;
+    }
 
+    /**
+     * 
+     * @param type $abstract
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setAbstract($abstract)
+    {
+        $this->abstract = $abstract;
+        return $this;
+    }
+
+
+    /**
+     * 
+     * @return type
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * 
+     * @return type
+     */
+    public function getExternalRef()
+    {
+        return $this->externalRef;
+    }
+
+    /**
+     * 
+     * @param type $slug
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * 
+     * @param type $externalRef
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setExternalRef($externalRef)
+    {
+        $this->externalRef = $externalRef;
+        return $this;
+    }
+    
 }

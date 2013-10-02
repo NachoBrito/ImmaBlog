@@ -14,7 +14,7 @@ class DefaultController extends AbstractController
     const FRONT_PAGE_THOUGHT_COUNT = 10;
 
     /**
-     * @Route("/{slug}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"})
+     * @Route("/{slug}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_home")
      * @Template()
      */
     public function indexAction($slug = '')
