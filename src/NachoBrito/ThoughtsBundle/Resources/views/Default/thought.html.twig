@@ -1,0 +1,23 @@
+{% extends 'NachoBritoThoughtsBundle:Default:index.html.twig' %}
+
+{% block title %}{{ thought.title }}{% endblock %}
+
+{% block body %}
+<div class="row-fluid" id="immablog-main">
+    <div class="span12">
+        <div class="row-fluid">
+            <div class="span12" id="immablog-single-thought">
+                <article>
+                <h1>{{ thought.title }}</h1>
+                <div class="abstract">
+                    {{ thought.abstract | raw }}
+                </div>
+                {{ thought.content | raw }}
+                </article>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

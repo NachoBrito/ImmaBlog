@@ -87,3 +87,14 @@ a:hover #logo{text-decoration: none;}
 .navbar .nav li{
     min-width: 120px;
 }
+
+#immablog-thoughts a.thought, 
+immablog-thoughts a.thought:hover{
+    color: #111;
+    text-decoration:none;
+}
+
+#immablog-single-thought .abstract{
+    margin: 20px;
+    font-style: italic;
+}
