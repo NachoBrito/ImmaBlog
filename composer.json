@@ -39,7 +39,9 @@
         "twitter/bootstrap": "2.3.*",
         "braincrafted/bootstrap-bundle": "dev-master",
         "jquery/jquery": "1.9.*",
-        "friendsofsymfony/user-bundle": "~2.0@dev"
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "jms/serializer-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
