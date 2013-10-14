@@ -43,10 +43,23 @@ class Thought
     /**
      * @var string
      *
+     * @ORM\Column(name="abstract_html", type="text")
+     */
+    private $abstractHTML;
+    
+    /**
+     * @var string
+     *
      * @Gedmo\Versioned
      * @ORM\Column(name="content", type="text")
      */
     private $content;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content_html", type="text")
+     */
+    private $contentHTML;
 
     /**
      * @var datetime $created
@@ -88,13 +101,6 @@ class Thought
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
-    
-    
-    /**
-     * @var string
-     * @ORM\Column(name="ext_ref", type="string", length=255)
-     */
-    private $externalRef;
     
     /**
      * 
@@ -302,14 +308,6 @@ class Thought
         return $this->slug;
     }
 
-    /**
-     * 
-     * @return type
-     */
-    public function getExternalRef()
-    {
-        return $this->externalRef;
-    }
 
     /**
      * 
@@ -322,15 +320,49 @@ class Thought
         return $this;
     }
 
+
     /**
      * 
-     * @param type $externalRef
+     * @return type
+     */
+    public function getContentHTML()
+    {
+        return $this->contentHTML;
+    }
+
+    /**
+     * 
+     * @param type $contentHTML
      * @return \NachoBrito\ThoughtsBundle\Entity\Thought
      */
-    public function setExternalRef($externalRef)
+    public function setContentHTML($contentHTML)
     {
-        $this->externalRef = $externalRef;
+        $this->contentHTML = $contentHTML;
         return $this;
     }
+    
+    /**
+     * 
+     * @return type
+     */
+    public function getAbstractHTML()
+    {
+        return $this->abstractHTML;
+    }
+
+    /**
+     * 
+     * @param type $abstractHTML
+     * @return \NachoBrito\ThoughtsBundle\Entity\Thought
+     */
+    public function setAbstractHTML($abstractHTML)
+    {
+        $this->abstractHTML = $abstractHTML;
+        return $this;
+    }
+
+
+
+
     
 }

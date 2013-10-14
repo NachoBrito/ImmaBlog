@@ -2,6 +2,7 @@ body {
     padding-top: 20px;
     padding-bottom: 60px;
 }
+textarea { resize:vertical; min-height:400px; }
 a:hover #logo{text-decoration: none;}
 #logo{
     color: #111;
@@ -98,4 +99,3 @@ immablog-thoughts a.thought:hover{
     margin: 20px;
     font-style: italic;
 }
-.control-group .controls textarea { resize:vertical; min-height:400px; }

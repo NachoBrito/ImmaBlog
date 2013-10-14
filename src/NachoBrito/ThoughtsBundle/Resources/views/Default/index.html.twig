@@ -33,7 +33,7 @@
                     <div class="span8">
                         <a href="{{ path('immablog_thought',{'slug':entry.slug}) }}" class="thought">
                             <h2>{{ entry.title }}</h2>
-                            <p>{{ entry.abstract | raw }}</p>
+                            <p>{{ entry.abstractHTML | raw }}</p>
                         </a>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 {% endif %}
 
             </div>
-            <div class="span1" style="background: red">
+            <div class="span1" >
 
             </div>
         </div>

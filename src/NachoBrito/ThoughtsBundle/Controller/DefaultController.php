@@ -32,10 +32,10 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_thought")
+     * @Route("/{slug}.{_format}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_thought")
      * @Template()
      */
-    public function thoughtAction($slug = '')
+    public function thoughtAction($slug = '', $format = 'html')
     {
         /* @var $repo ThoughtRepository */
         $repo = $this->getDoctrine()->getRepository('NachoBritoThoughtsBundle:Thought');
@@ -48,6 +48,16 @@ class DefaultController extends AbstractController
 
         return $data;
         
+    }
+    
+    /**
+     * @Route("/{section}/{slug}.{_format}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_thought_insection")
+     * @param type $section
+     * @param type $slug
+     */
+    public function oldThoughtsAction($section = '', $slug = '', $format = 'html'){
+        $url = $this->generateUrl('immablog_thought',array('slug'=>$slug, '_format'=>$format));
+        return $this->redirect($url, 301);
     }
 
 }

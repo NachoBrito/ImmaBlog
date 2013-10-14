@@ -10,9 +10,9 @@
                 <article>
                 <h1>{{ thought.title }}</h1>
                 <div class="abstract">
-                    {{ thought.abstract | raw }}
+                    {{ thought.abstractHTML | raw }}
                 </div>
-                {{ thought.content | raw }}
+                {{ thought.contentHTML | raw }}
                 </article>
 
             </div>

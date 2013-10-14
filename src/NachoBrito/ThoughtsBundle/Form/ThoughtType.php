@@ -21,8 +21,7 @@ class ThoughtType extends AbstractType
                 ->add('parent')
                 ->add('title')
                 ->add('abstract','textarea')
-                ->add('externalRef','textarea')
-                ->add('content', new EditorType())
+                ->add('content', 'textarea')
         ;
     }
 

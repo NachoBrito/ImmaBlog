@@ -23,7 +23,8 @@ class AppKernel extends Kernel
             new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new FOS\RestBundle\FOSRestBundle(),            
+            new FOS\RestBundle\FOSRestBundle(),   
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
