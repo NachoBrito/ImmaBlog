@@ -32,7 +32,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}.{_format}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_thought")
+     * @Route("/{slug}.{_format}", requirements={"slug" = "[a-zA-Z0-9\.\-\_]{4,}"}, name="immablog_thought")
      * @Template()
      */
     public function thoughtAction($slug = '', $format = 'html')

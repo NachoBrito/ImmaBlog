@@ -17,7 +17,7 @@ class ThoughtType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('public')
+                ->add('public', 'checkbox', array('required'=>false))
                 ->add('parent')
                 ->add('title')
                 ->add('abstract','textarea')

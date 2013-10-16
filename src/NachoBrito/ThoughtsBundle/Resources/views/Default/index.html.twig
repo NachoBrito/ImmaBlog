@@ -5,43 +5,30 @@
 <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.0/cosmo/bootstrap.min.css" rel="stylesheet">
 {% endblock %}
 
-{% block navlinks %}
-<li><a href="#">{{'immablog.contact'|trans}}</a></li>                               
-<li><a href="#">{{'immablog.about'|trans}}</a></li>
-
-{% endblock %}
-
 {% block body %}
 <div class="row-fluid" id="immablog-main">
     <div class="span12">
         <div class="row-fluid">
-            <div class="span11" id="immablog-thoughts">
+            <div class="span9" id="immablog-thoughts">
 
                 {% if thoughts %}
                 {% for entry in thoughts %}
-                <div class="row-fluid">
-                    <div class="span3">
-                        <span class='label label-success'>
-                            {{entry.created|date()}}
-                        </span>
-                        {% if is_granted('ROLE_ADMIN') %}
-                        <div class="well" style="margin-top:20px;">
-                            <a href="{{ path('t_edit',{'id':entry.id}) }}" class="btn">{{ 'immablog.edit-thought' |trans}}</a>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="span8">
-                        <a href="{{ path('immablog_thought',{'slug':entry.slug}) }}" class="thought">
-                            <h2>{{ entry.title }}</h2>
-                            <p>{{ entry.abstractHTML | raw }}</p>
-                        </a>
-                    </div>
-                </div>
+
+                <div class="home_thought">
+                    <p class='muted'>
+                        {{entry.created|date()}}
+                    </p>
+                    <a href="{{ path('immablog_thought',{'slug':entry.slug, '_format':'html'}) }}" class="thought">
+                        <h2>{{ entry.title }}</h2>
+                        <p>{{ entry.abstractHTML | raw }}</p>
+                    </a>
+                </div>               
+
                 {% endfor %}
                 {% endif %}
 
             </div>
-            <div class="span1" >
+            <div class="span3" >
 
             </div>
         </div>

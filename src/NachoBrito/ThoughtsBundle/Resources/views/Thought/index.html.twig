@@ -6,9 +6,8 @@
 <table class="records_list table table-hover">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>                
             <th>Created</th>
+            <th>Title</th>                            
             <th>Contentchanged</th>
             <th>Public</th>
             <th>Actions</th>
@@ -17,13 +16,19 @@
     <tbody>
         {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('t_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.title }}</td>                
             <td>{% if entity.created %}{{ entity.created|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td><a href="{{ path('t_edit', { 'id': entity.id }) }}">{{ entity.title }}</a></td>                
             <td>{% if entity.contentChanged %}{{ entity.contentChanged|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{{ entity.public }}</td>
             <td>
-                <a class="btn btn-mini" href="{{ path('t_edit', { 'id': entity.id }) }}">edit</a>
+                {% if entity.public %}
+                <i class="icon-ok"></i>
+                {% endif %}
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-mini" href="{{ path('t_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
+                    <a class="btn btn-mini" href="{{ path('immablog_thought',{'slug':entity.slug, '_format':'html'}) }}" target="_blank"><i class="icon-external-link"></i></a>
+                </div>
             </td>
         </tr>
         {% endfor %}

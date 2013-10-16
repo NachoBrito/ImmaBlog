@@ -2,13 +2,15 @@
 
 namespace NachoBrito\ThoughtsBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Doctrine\ORM\EntityRepository;
+use NachoBrito\ThoughtsBundle\Entity\Thought;
+use NachoBrito\ThoughtsBundle\Form\ThoughtType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use NachoBrito\ThoughtsBundle\Entity\Thought;
-use NachoBrito\ThoughtsBundle\Form\ThoughtType;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Thought controller.
@@ -28,8 +30,14 @@ class ThoughtController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('NachoBritoThoughtsBundle:Thought')->findAll();
+        /* @var $repo EntityRepository */
+        $repo = $em->getRepository('NachoBritoThoughtsBundle:Thought');
+        $entities = $repo
+                ->createQueryBuilder('t')
+                ->orderBy('t.id', 'DESC')
+                ->getQuery()
+                ->getResult();
+                
 
         return array(
             'entities' => $entities,
@@ -53,7 +61,7 @@ class ThoughtController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('t_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('t_edit', array('id' => $entity->getId())));
         }
 
         return array(
@@ -67,7 +75,7 @@ class ThoughtController extends Controller
     *
     * @param Thought $entity The entity
     *
-    * @return \Symfony\Component\Form\Form The form
+    * @return Form The form
     */
     private function createCreateForm(Thought $entity)
     {
@@ -156,7 +164,7 @@ class ThoughtController extends Controller
     *
     * @param Thought $entity The entity
     *
-    * @return \Symfony\Component\Form\Form The form
+    * @return Form The form
     */
     private function createEditForm(Thought $entity)
     {
@@ -233,7 +241,7 @@ class ThoughtController extends Controller
      *
      * @param mixed $id The entity id
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return Form The form
      */
     private function createDeleteForm($id)
     {

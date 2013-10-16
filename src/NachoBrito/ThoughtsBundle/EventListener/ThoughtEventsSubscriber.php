@@ -4,6 +4,7 @@ namespace NachoBrito\ThoughtsBundle\EventListener;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\ORM\UnitOfWork;
 use Knp\Bundle\MarkdownBundle\MarkdownParserInterface;
 use NachoBrito\ThoughtsBundle\Entity\Thought;
 
@@ -73,17 +74,21 @@ class ThoughtEventsSubscriber implements EventSubscriber
                 $abstractHTML = $this->markDownParser->transformMarkdown($abstract);
                 $entity->setAbstractHTML($abstractHTML);
             }
+
             //trigger Docrine recalculation so that the new value is stored.
             $uow = $em->getUnitOfWork();
             $meta = $em->getClassMetadata(get_class($entity));
-            $uow->recomputeSingleEntityChangeSet($meta, $entity);
+            if ($uow->getEntityState($entity) == UnitOfWork::STATE_MANAGED)
+            {
+                $uow->recomputeSingleEntityChangeSet($meta, $entity);
+            }
         }
     }
 
     /**
      * 
-     * @param \Knp\Bundle\MarkdownBundle\MarkdownParserInterface $markDownParser
-     * @return \NachoBrito\ThoughtsBundle\EventListener\ThoughtEventsSubscriber
+     * @param MarkdownParserInterface $markDownParser
+     * @return ThoughtEventsSubscriber
      */
     public function setMarkDownParser(MarkdownParserInterface $markDownParser)
     {

@@ -2,8 +2,8 @@
 
 {% block title %}{{'immablog.title' |trans}}{% endblock %}
 {% block body -%}
+{{ form_start(edit_form) }}
 <div class='row-fluid'>
-    {{ form_start(edit_form) }}
     <legend>{{'immablog.content-editor' |trans}}</legend>
     <label class='checkbox'>
         {{ form_widget(edit_form.public) }} {{ form_label(edit_form.public) }}
@@ -60,13 +60,13 @@
         </div>
         <div class="span1"><a class="btn btn-mini" data-toggle="button" href="javascript:void(0)" data-target="#collapse-content" onclick="javascript:$($(this).data('target')).collapse('toggle')"><i class="icon-edit" ></i></a></div>
     </div>
+    {{ form_end(edit_form) }}    
     <div class='row-fluid'>
         <div class="span12">
             {{ form_widget(edit_form._token) }}
             <div class="form-actions">
                 {{ form_widget(edit_form.submit,{ 'attr': {'class': 'btn btn-primary'} }) }}
-            </div>
-            {{ form_end(edit_form) }}
+            </div>            
             <ul class="record_actions">
                 <li>
                     <a href="{{ path('t') }}">
