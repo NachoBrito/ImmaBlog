@@ -126,7 +126,19 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: NachoBrito\ThoughtsBundle\Entity\User  
+
     
+sensio_framework_extra:
+    view:
+        annotations: false
+
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    view:
+        view_response_listener: 'force' 
+        
 knp_markdown:
     parser:
         service: markdown.parser.max

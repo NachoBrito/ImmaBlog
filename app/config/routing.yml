@@ -11,6 +11,11 @@ nacho_brito_thoughts:
     type:     annotation
     prefix:   /
     
+nacho_brito_thoughts_api:
+    resource: "@NachoBritoThoughtsBundle/APIController/"
+    type:     rest
+    prefix:   /api
+    
 #fos_user_register:
 #    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
 #    prefix: /register
