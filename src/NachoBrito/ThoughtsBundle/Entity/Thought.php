@@ -32,7 +32,7 @@ class Thought
      */
     private $title;
 
-    /**
+    /** 
      * @var string
      *
      * @Gedmo\Versioned
@@ -101,6 +101,27 @@ class Thought
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="author_avatar_url", type="string", length=255)
+     */    
+    private $authorAvatarUrl = '/img/anon.png';
+
+    /**
+     * @var string
+     * 
+
+     * @ORM\Column(name="author_name", type="string", length=255)
+     */    
+    private $authorName = 'A visitor';
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="thoughts")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
+     */
+    protected $author;
     
     /**
      * 
@@ -187,10 +208,9 @@ class Thought
     
     /**
      * 
-     * @param \NachoBrito\ThoughtsBundle\Entity\datetime $created
      * @return \NachoBrito\ThoughtsBundle\Entity\Thought
      */
-    public function setCreated(datetime $created)
+    public function setCreated($created)
     {
         $this->created = $created;
         return $this;
@@ -199,10 +219,9 @@ class Thought
     
     /**
      * 
-     * @param \NachoBrito\ThoughtsBundle\Entity\datetime $contentChanged
      * @return \NachoBrito\ThoughtsBundle\Entity\Thought
      */
-    public function setContentChanged(datetime $contentChanged)
+    public function setContentChanged($contentChanged)
     {
         $this->contentChanged = $contentChanged;
         return $this;
@@ -358,6 +377,40 @@ class Thought
     public function setAbstractHTML($abstractHTML)
     {
         $this->abstractHTML = $abstractHTML;
+        return $this;
+    }
+
+
+    public function getAuthorAvatarUrl()
+    {
+        return $this->authorAvatarUrl;
+    }
+
+    public function getAuthorName()
+    {
+        return $this->authorName;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthorAvatarUrl($authorAvatarUrl)
+    {
+        $this->authorAvatarUrl = $authorAvatarUrl;
+        return $this;
+    }
+
+    public function setAuthorName($authorName)
+    {
+        $this->authorName = $authorName;
+        return $this;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
         return $this;
     }
 

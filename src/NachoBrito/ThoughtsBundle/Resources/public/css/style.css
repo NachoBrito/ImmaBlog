@@ -42,11 +42,11 @@ body {
     text-decoration:none;
 }
 .home_thought{
-    transition: background 1s;
+    transition: box-shadow 1s;
     margin-bottom: 80px;
 }
 .home_thought:hover{
-    background: #dedede;
+    box-shadow: 0 0 15px #bbb;    
 }
 
 #immablog-single-thought .abstract{
@@ -54,3 +54,9 @@ body {
     font-style: italic;
 }
 .control-group .controls textarea { resize:vertical; min-height:400px; }
+
+article.comment{
+    margin: 10px 0 20px 0;
+    border-bottom: 1px solid #ddd;
+    min-height: 100px;
+}

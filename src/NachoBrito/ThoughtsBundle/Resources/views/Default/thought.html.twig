@@ -8,17 +8,28 @@
         <div class="row-fluid">
             <div class="span12" id="immablog-single-thought">
                 <article>
-                <h1>{{ thought.title }}</h1>
-                <div class="abstract">
-                    {{ thought.abstractHTML | raw }}
-                </div>
-                {{ thought.contentHTML | raw }}
+                    <h1>{{ thought.title }}</h1>
+                    <div class="abstract">
+                        {{ thought.abstractHTML | raw }}
+                    </div>
+                    {{ thought.contentHTML | raw }}
                 </article>
 
             </div>
         </div>
 
     </div>
-    <div class="span3"></div>
+    <div class="span3">
+        <div id="thought-children" data-spy="affix" data-offset-top="200">
+            <aside>
+                <h3>{{'immablog.thought.comments'|transchoice(thought.children.count, {})}}</h3>
+                {% if thought.children %}
+                {% for entry in thought.children %}
+                {{ include('NachoBritoThoughtsBundle:Default:comment.html.twig', {'thought': entry}) }}
+                {% endfor %}
+                {% endif %}                
+            </aside>
+        </div>        
+    </div>
 </div>
 {% endblock %}

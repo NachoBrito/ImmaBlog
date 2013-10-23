@@ -50,6 +50,10 @@
                 <source>immablog.manage</source>
                 <target>Thoughts</target>
             </trans-unit>
+            <trans-unit id="13">
+                <source>immablog.thought.comments</source>
+                <target>{0} No comments yet|{1} There is one comment|[2,Inf] %count% comments</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
