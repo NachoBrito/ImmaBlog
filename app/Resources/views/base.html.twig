@@ -5,9 +5,9 @@
         <title>{% block title %}Welcome!{% endblock %}</title>    
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='http://fonts.googleapis.com/css?family=Raleway:200,400' rel='stylesheet' type='text/css'>
-        <link href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/bootstrap_responsive_2.css') }}">
+        <link rel='stylesheet' type='text/css' href="{{ asset('css/font-awesome.min.css')}}">
+        <link rel="stylesheet" type='text/css' href="{{ asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" type='text/css' href="{{ asset('css/bootstrap_responsive_2.css') }}">
 
         {% stylesheets '@NachoBritoThoughtsBundle/Resources/public/css/*' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
@@ -32,12 +32,12 @@
                         {% if is_granted('ROLE_ADMIN') %}                                
                         <li {% if path=='t' %}class="active"{%endif%} class="pull-right">
                             <a href="{{path('t')}}" title="{{'immablog.manage'|trans}}">
-                                <i class="icon-wrench"></i>
+                                <i class="fa fa-cogs"></i>
                             </a>
                         </li>
                         <li class="pull-right">
                             <a href="{{ path('fos_user_security_logout') }}" title="{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}">
-                                <i class="icon-off"></i>
+                                <i class="fa fa-sign-out"></i>
                             </a>
                         </li>
                         {% else %}

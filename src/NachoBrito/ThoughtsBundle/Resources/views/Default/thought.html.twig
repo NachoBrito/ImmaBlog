@@ -22,7 +22,10 @@
     <div class="span3">
         <div id="thought-children" data-spy="affix" data-offset-top="200">
             <aside>
-                <h3>{{'immablog.thought.comments'|transchoice(thought.children.count, {})}}</h3>
+                <h3><i class='fa fa-comments-o'></i> {{'immablog.thought.comments'|transchoice(thought.children.count, {})}}</h3>                
+                <div>
+                <a class='btn-link'><i class='fa fa-comment'></i> <span>{{'immablog.thought.comments.new'|trans  }}</span></a>                
+                </div>
                 {% if thought.children %}
                 {% for entry in thought.children %}
                 {{ include('NachoBritoThoughtsBundle:Default:comment.html.twig', {'thought': entry}) }}

@@ -1,10 +1,16 @@
 <article class="comment">
-    <h4>{{ thought.title }}</h4>
+    <h4>{{ thought.authorName }}</h4>
     <img width="64" src="{{thought.authorAvatarUrl}}?s=64" class="pull-right" />
     {{ thought.contentHTML | raw }}
     <div class="clear">
         <p class='muted'>
             {{entry.created|date()}}
-        </p>        
+        </p>
+        <div>
+            <a href="#" class='btn-link'>
+                <i class="fa fa-reply-all"></i>
+                <span>{{'immablog.thought.comments.reply'|trans  }}</span>
+            </a>
+        </div>
     </div>
 </article>

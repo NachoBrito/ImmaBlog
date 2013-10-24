@@ -52,7 +52,15 @@
             </trans-unit>
             <trans-unit id="13">
                 <source>immablog.thought.comments</source>
-                <target>{0} No comments yet|{1} There is one comment|[2,Inf] %count% comments</target>
+                <target>{0} No comments yet|{1} One comment|[2,Inf] %count% comments</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>immablog.thought.comments.reply</source>
+                <target>Reply</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>immablog.thought.comments.new</source>
+                <target>New Comment</target>
             </trans-unit>
         </body>
     </file>

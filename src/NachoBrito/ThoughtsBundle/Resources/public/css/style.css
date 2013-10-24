@@ -55,8 +55,20 @@ body {
 }
 .control-group .controls textarea { resize:vertical; min-height:400px; }
 
-article.comment{
+#thought-children h3{
+    margin: 0 0 40px 0;
+}
+#thought-children {
+    width: 260px;
+}
+#thought-children article.comment{
     margin: 10px 0 20px 0;
     border-bottom: 1px solid #ddd;
     min-height: 100px;
+}
+#thought-children .btn-link:hover span{
+    display: inline;
+}
+#thought-children .btn-link span{
+    display:none;
 }

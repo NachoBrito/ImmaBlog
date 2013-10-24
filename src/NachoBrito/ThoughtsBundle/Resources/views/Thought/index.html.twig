@@ -21,13 +21,13 @@
             <td>{% if entity.contentChanged %}{{ entity.contentChanged|date('Y-m-d H:i:s') }}{% endif %}</td>
             <td>
                 {% if entity.public %}
-                <i class="icon-ok"></i>
+                <i class="fa fa-check-square-o"></i>
                 {% endif %}
             </td>
             <td>
                 <div class="btn-group">
-                    <a class="btn btn-mini" href="{{ path('t_edit', { 'id': entity.id }) }}"><i class="icon-edit"></i></a>
-                    <a class="btn btn-mini" href="{{ path('immablog_thought',{'slug':entity.slug, '_format':'html'}) }}" target="_blank"><i class="icon-external-link"></i></a>
+                    <a class="btn btn-mini" href="{{ path('t_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil-square-o"></i></a>
+                    <a class="btn btn-mini" href="{{ path('immablog_thought',{'slug':entity.slug, '_format':'html'}) }}" target="_blank"><i class="fa fa-external-link"></i></a>
                 </div>
             </td>
         </tr>
