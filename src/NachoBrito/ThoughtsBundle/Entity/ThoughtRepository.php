@@ -16,11 +16,12 @@ class ThoughtRepository extends EntityRepository
     /**
      * 
      * @param type $count
+     * @return recent first level thoughts (not comments)
      */
     public function getRecentThoughts($count = 5)
     {
         $query = $this->createQueryBuilder('t')
-                ->where('t.public=1')                
+                ->where('t.public=1 AND t.parent IS NULL')                
                 ->orderBy('t.id', 'DESC')                
                 ->setMaxResults($count)
                 ->getQuery();

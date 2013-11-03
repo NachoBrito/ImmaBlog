@@ -6,6 +6,3 @@ jQuery( document ).ready(function( $ ) {
         alert('hey!');
     }
 });
-jQuery( document ).ready(function( $ ) {
-
-});

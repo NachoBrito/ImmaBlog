@@ -42,24 +42,27 @@ body {
     text-decoration:none;
 }
 .home_thought{
-    transition: box-shadow 1s;
     margin-bottom: 80px;
-}
-.home_thought:hover{
-    box-shadow: 0 0 15px #bbb;    
 }
 
 #immablog-single-thought .abstract{
     margin: 20px;
     font-style: italic;
 }
-.control-group .controls textarea { resize:vertical; min-height:400px; }
+.control-group .controls textarea {
+    resize:vertical;     
+    min-height:400px; 
+}
 
 #thought-children h3{
     margin: 0 0 40px 0;
 }
 #thought-children {
-    width: 260px;
+    
+}
+
+.expanded #thought-children{
+    width: auto;
 }
 #thought-children article.comment{
     margin: 10px 0 20px 0;
@@ -71,4 +74,15 @@ body {
 }
 #thought-children .btn-link span{
     display:none;
+}
+
+#thought-content, #thought-aside{
+    transition: width .2s;
+}
+#comments-row{
+    margin-top: 90px;
+}
+#new-comment-form input, #new-comment-form textarea{
+    width: 100%;    
+    padding: 15px;
 }
