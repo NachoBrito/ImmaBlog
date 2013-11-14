@@ -2,6 +2,7 @@
 
 namespace NachoBrito\ThoughtsBundle\Controller;
 
+use CommentType;
 use NachoBrito\ThoughtsBundle\Entity\ThoughtRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -44,6 +45,7 @@ class DefaultController extends AbstractController
         
         $data = array();        
         $data['thought'] = $thought;
+        $data['comment_form'] = new CommentType();
         $data['csrf_token'] = $this->getCSRFToken();
 
         return $data;

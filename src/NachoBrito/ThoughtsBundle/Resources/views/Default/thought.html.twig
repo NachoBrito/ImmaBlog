@@ -32,6 +32,8 @@
     </div>
     <div class="span6">
         <div id='new-comment-form'>
+            {{ include('NachoBritoThoughtsBundle:Default:comment-form.html.twig', {'form': comment_form}) }}
+            
             <a class='btn-link activate-comments'><i class='fa fa-comment'></i> <span>{{'immablog.thought.comments.new'|trans  }}</span></a>                
             <form name="frm-new-comment" action="">
                 <div class="control-group">
