@@ -20,6 +20,8 @@
     </div>
 </div>
 <div class='row-fluid' id='comments-row'>
-     {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}
+    <div class="span8 offset2" id="thought-comments">
+     {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': thought.slug} %}
+    </div>
 </div>
 {% endblock %}

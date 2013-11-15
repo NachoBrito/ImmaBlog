@@ -86,3 +86,22 @@ body {
     width: 100%;    
     padding: 15px;
 }
+/** comments **/
+#fos_comment_comment_body{
+    width: 100%;
+    min-height: 200px;
+}
+#fos_comment_thread .fos_comment_submit{
+    margin: 20px auto 40px auto;
+    text-align: center;
+}
+#fos_comment_thread .fos_comment_comment_metas{
+    margin: 20px 0;
+    color: #666;
+}
+#fos_comment_thread .fos_comment_comment_body{
+    margin: 5px 0 20px;
+}
+#fos_comment_thread .fos_comment_comment_reply{
+    text-align: right;
+}
