@@ -21,9 +21,10 @@ class AppKernel extends Kernel
             new NachoBrito\ThoughtsBundle\NachoBritoThoughtsBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            new FOS\RestBundle\FOSRestBundle(),   
+            new FOS\UserBundle\FOSUserBundle(),            
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
         );
 

@@ -2,7 +2,6 @@
 
 namespace NachoBrito\ThoughtsBundle\Controller;
 
-use CommentType;
 use NachoBrito\ThoughtsBundle\Entity\ThoughtRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -33,7 +32,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}.{_format}", requirements={"slug" = "[a-zA-Z0-9\.\-\_]{4,}"}, name="immablog_thought")
+     * @Route("/{slug}.{_format}", requirements={"slug" = "[a-zA-Z0-9\.\-\_]{6,}"}, name="immablog_thought")
      * @Template()
      */
     public function thoughtAction($slug = '', $format = 'html')
@@ -44,8 +43,7 @@ class DefaultController extends AbstractController
         $thought = $repo->findOneBy(array('slug'=>$slug));
         
         $data = array();        
-        $data['thought'] = $thought;
-        $data['comment_form'] = new CommentType();
+        $data['thought'] = $thought;        
         $data['csrf_token'] = $this->getCSRFToken();
 
         return $data;

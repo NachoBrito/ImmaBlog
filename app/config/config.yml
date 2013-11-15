@@ -34,7 +34,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: true
-    bundles:        [NachoBritoThoughtsBundle]
+    bundles:        [NachoBritoThoughtsBundle,FOSCommentBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -130,15 +130,23 @@ fos_user:
     
 sensio_framework_extra:
     view:
-        annotations: false
+        annotations: true
 
-fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
-    format_listener: true
-    view:
-        view_response_listener: 'force' 
+#fos_rest:
+#    param_fetcher_listener: true
+#    body_listener: true
+#    format_listener: true
+#    view:
+#        view_response_listener: 'force' 
         
 knp_markdown:
     parser:
         service: markdown.parser.max
+        
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: NachoBrito\ThoughtsBundle\Entity\Comment
+            thread: NachoBrito\ThoughtsBundle\Entity\Thread
+    
