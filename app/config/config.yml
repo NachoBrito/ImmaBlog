@@ -34,7 +34,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: true
-    bundles:        [NachoBritoThoughtsBundle,FOSCommentBundle]
+    bundles:        [NachoBritoThoughtsBundle,FOSUserBundle,FOSCommentBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

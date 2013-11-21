@@ -2,8 +2,20 @@ body {
     padding-top: 20px;
     padding-bottom: 60px;
 }
+li{
+    line-height: 1.4em;
+    margin-bottom: 1em;
+}
 #left-col{
     text-align: right;
+}
+#social-links{    
+}
+#social-links a{
+    margin: 0 0 0 24px;
+}
+#social-links a:hover{
+    text-decoration:none;
 }
 #immablog-main{
     margin-top:100px;
@@ -59,6 +71,7 @@ body {
     margin: 20px;
     font-style: italic;
     font-size: 25px;
+    color: #666;
 }
 
 

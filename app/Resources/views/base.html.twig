@@ -17,15 +17,14 @@
     </head>
     <body>
         <div class="container">
-            <div class="row-fluid">
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="row-fluid" id='header'>
                 <div class="span3">
 
                 </div>
                 <div class="span9">
                     {% set path = app.request.attributes.get('_route')%}
-                    <ul class="nav">                                
-                        {% block navlinks %}{% endblock %}
-                        {% if is_granted('ROLE_ADMIN') %}                                
+                    <ul class="nav">                                                        
                         <li {% if path=='t' %}class="active"{%endif%} class="pull-right">
                             <a href="{{path('t')}}" title="{{'immablog.manage'|trans}}">
                                 <i class="fa fa-cogs"></i>
@@ -36,31 +35,11 @@
                                 <i class="fa fa-sign-out"></i>
                             </a>
                         </li>
-                        {% else %}
-                        <li class="dropdown pull-right">
-                            <a class="dropdown-toggle" href="#" data-toggle="dropdown" title="{{'immablog.signin' | trans}}"><i class="icon-user"></i> <strong class="caret"></strong></a>
-                            <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                                <form action="{{ path("fos_user_security_check") }}" method="post">
-                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-                                    <label for="username">{{ 'security.login.username'|trans }}</label>
-                                    <input type="text" id="username" name="_username" value="" required="required" />
-
-                                    <label for="password">{{ 'security.login.password'|trans }}</label>
-                                    <input type="password" id="password" name="_password" required="required" />
-
-                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-                                    <input class="btn btn-mini btn-success" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                                </form>                                        
-                            </div>
-                        </li> 
-                        {% endif %}
-                        <li class="pull-right"><a href="#">{{'immablog.contact'|trans}}</a></li>                               
                     </ul>
                 </div>
             </div> 
+            {% endif %} 
             {% for type, messages in app.session.flashbag.all() %}
             {% for message in messages %}
             <div class="row-fluid flash-{{ type }}">

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200,400' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' type='text/css' href="{{ asset('css/font-awesome.min.css')}}">
+        <link rel="stylesheet" type='text/css' href="{{ asset('css/bootstrap.css') }}">
+        <link rel="stylesheet" type='text/css' href="{{ asset('css/bootstrap_responsive_2.css') }}">
+
+        {% stylesheets '@NachoBritoThoughtsBundle/Resources/public/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}        
+        {% block extra_css %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />        
+    </head>
+    <body>   
+        <div class='row-fluid'>
+            <div class='span4 offset4'>
+                <div>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                    {% endif %}
+                </div>
+
+                {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endfor %}
+
+                <div>
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
