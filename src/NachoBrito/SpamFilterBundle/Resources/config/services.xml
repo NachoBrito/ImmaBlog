@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="nbspamfilter.vector_space_model.class">NachoBrito\SpamFilterBundle\Services\VectorSpaceModel</parameter>
+        <parameter key="nbspamfilter.stemmer.class">NachoBrito\SpamFilterBundle\Services\Stemmer</parameter>
+        <parameter key="nbspamfilter.stopwords.class">NachoBrito\SpamFilterBundle\Services\StopWordsProvider</parameter>
+    </parameters>
+    <services>
+
+        <service id="nbspamfilter.vector_space_model" class="%nbspamfilter.vector_space_model.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="nbspamfilter.stemmer" />                        
+            <argument type="service" id="nbspamfilter.stopwords" />          
+            <argument type="service" id="logger" />              
+        </service>        
+        
+        <service id="nbspamfilter.stemmer" class="%nbspamfilter.stemmer.class%">
+        </service>
+        
+        <service id="nbspamfilter.stopwords" class="%nbspamfilter.stopwords.class%">
+        </service>
+
+             
+    </services>
+
+</container>

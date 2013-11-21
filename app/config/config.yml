@@ -149,4 +149,10 @@ fos_comment:
         model:
             comment: NachoBrito\ThoughtsBundle\Entity\Comment
             thread: NachoBrito\ThoughtsBundle\Entity\Thread
-    
+#    service:
+#        spam_detection:
+#            comment: fos_comment.spam_detection.comment.akismet
+            
+ornicar_akismet:
+    api_key:        ab25cdce3d38
+    url:            http://www.nachobrito.com

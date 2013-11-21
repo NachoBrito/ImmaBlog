@@ -17,15 +17,17 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new NachoBrito\ThoughtsBundle\NachoBritoThoughtsBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),            
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Bc\Bundle\BootstrapBundle\BcBootstrapBundle(),
             new FOS\UserBundle\FOSUserBundle(),            
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),            
+            new Ornicar\AkismetBundle\OrnicarAkismetBundle(),
+            new NachoBrito\ThoughtsBundle\NachoBritoThoughtsBundle(),
+            new NachoBrito\SpamFilterBundle\NachoBritoSpamFilterBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

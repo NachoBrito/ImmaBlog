@@ -4,7 +4,10 @@
 
 {% block body %}
 <div class="row-fluid" id="immablog-main">
-    <div class="span8 offset2" id="thought-content">
+    <div class="span2" id="left-col">        
+        {% include 'NachoBritoThoughtsBundle:Default:author.html.twig'%}
+    </div>
+    <div class="span8" id="thought-content">
         <div class="row-fluid">
             <div id="immablog-single-thought">
                 <article>

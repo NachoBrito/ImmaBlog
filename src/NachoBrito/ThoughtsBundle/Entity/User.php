@@ -16,7 +16,12 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Thought", mappedBy="author")
+     */
+    protected $thoughts;
+    
     public function __construct()
     {
         parent::__construct();

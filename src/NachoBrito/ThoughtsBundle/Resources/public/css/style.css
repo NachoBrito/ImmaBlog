@@ -2,18 +2,23 @@ body {
     padding-top: 20px;
     padding-bottom: 60px;
 }
-#lnk-logo{width:200px;}
+#left-col{
+    text-align: right;
+}
+#immablog-main{
+    margin-top:100px;
+}
+#lnk-logo{}
 #lnk-logo:hover,#lnk-logo:hover #logo {
     text-decoration: none;
-    background-color: #000;
-    color: #fff;
 }
 #logo{   
+    margin: 0;
     color: #111;
     font-family: 'Raleway', sans-serif;
-    font-size: 45px;
-    letter-spacing: -2px;
-    word-spacing: -5px;
+    font-size: 25px;
+    letter-spacing: -1px;
+    word-spacing: -3px;
 }
 #logo #l1{
     margin: 0;
@@ -29,6 +34,7 @@ body {
 .container {
     margin: 0 auto;
     max-width: 1000px;
+    font-size: 22px;
 }
 .container > hr {
     margin: 60px 0;
@@ -45,47 +51,17 @@ body {
     margin-bottom: 80px;
 }
 
+#immablog-single-thought h1{
+    margin-top: 0;
+    font-weight: bold;
+}
 #immablog-single-thought .abstract{
     margin: 20px;
     font-style: italic;
-}
-.control-group .controls textarea {
-    resize:vertical;     
-    min-height:400px; 
+    font-size: 25px;
 }
 
-#thought-children h3{
-    margin: 0 0 40px 0;
-}
-#thought-children {
-    
-}
 
-.expanded #thought-children{
-    width: auto;
-}
-#thought-children article.comment{
-    margin: 10px 0 20px 0;
-    border-bottom: 1px solid #ddd;
-    min-height: 100px;
-}
-#thought-children .btn-link:hover span{
-    display: inline;
-}
-#thought-children .btn-link span{
-    display:none;
-}
-
-#thought-content, #thought-aside{
-    transition: width .2s;
-}
-#comments-row{
-    margin-top: 90px;
-}
-#new-comment-form input, #new-comment-form textarea{
-    width: 100%;    
-    padding: 15px;
-}
 /** comments **/
 #fos_comment_comment_body{
     width: 100%;

@@ -1,3 +1,8 @@
+nacho_brito_spam_filter:
+    resource: "@NachoBritoSpamFilterBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     

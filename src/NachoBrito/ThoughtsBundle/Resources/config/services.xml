@@ -11,6 +11,11 @@
                 <argument type="service" id="markdown.parser" />
             </call>            
         </service>
+        <service id="doctrine.listener.comment" class="NachoBrito\ThoughtsBundle\EventListener\CommentListener">
+            <argument type="service" id="fos_comment.manager.comment" />
+            <argument type="service" id="doctrine" />
+            <tag name="kernel.event_listener" event="fos_comment.comment.post_persist" method="onCommentPersist" />
+        </service>        
     </services>
         
 </container>

@@ -29,3 +29,6 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+#ornicar_akismet:
+#    service:        ornicar_akismet.akismet_stub
