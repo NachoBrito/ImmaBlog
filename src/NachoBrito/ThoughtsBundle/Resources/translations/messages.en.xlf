@@ -74,6 +74,18 @@
                 <source>immablog.thought.comments.new.submit</source>
                 <target>Publish</target>
             </trans-unit>
+            <trans-unit id="19">
+                <source>immablog.thought.comments.notification.subject</source>
+                <target>[Blog] Nuevo comentario en </target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>immablog.thought.comments.notification.body1</source>
+                <target>Se ha recibido un nuevo comentario:</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>immablog.thought.comments.notification.body2</source>
+                <target>Enlace al post:</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -5,15 +5,28 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+    
+        <service id="immablog.user_manager" class="NachoBrito\ThoughtsBundle\Services\NBTUserManager" public="false">
+            <argument type="service" id="security.encoder_factory" />
+            <argument type="service" id="fos_user.util.username_canonicalizer" />
+            <argument type="service" id="fos_user.util.email_canonicalizer" />
+            <argument type="service" id="fos_user.entity_manager" />
+            <argument>%fos_user.model.user.class%</argument>
+        </service> 
+                   
         <service id="doctrine.subscriber.thought" class="NachoBrito\ThoughtsBundle\EventListener\ThoughtEventsSubscriber">
             <tag name="doctrine.event_subscriber" connection="default" />
             <call method="setMarkDownParser">
                 <argument type="service" id="markdown.parser" />
             </call>            
         </service>
-        <service id="doctrine.listener.comment" class="NachoBrito\ThoughtsBundle\EventListener\CommentListener">
+        <service id="doctrine.listener.comment.notification" class="NachoBrito\ThoughtsBundle\EventListener\CommentNotificationListener">
             <argument type="service" id="fos_comment.manager.comment" />
             <argument type="service" id="doctrine" />
+            <argument type="service" id="translator" />
+            <argument type="service" id="router" />
+            <argument type="service" id="mailer" />
+            <argument type="string" id="mail_from">%comment_notification_email_from%</argument>
             <tag name="kernel.event_listener" event="fos_comment.comment.post_persist" method="onCommentPersist" />
         </service>        
     </services>

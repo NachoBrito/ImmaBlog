@@ -51,11 +51,11 @@ class DefaultController extends AbstractController
     }
     
     /**
-     * @Route("/{section}/{slug}.{_format}", requirements={"slug" = "[a-zA-Z\.\-\_]{3,}"}, name="immablog_thought_insection")
+     * @Route("/{section}/{num}-{slug}.{_format}", requirements={"slug" = "[0-9a-zA-Z\.\-\_]{3,}", "num"="[\d]{2}"}, name="immablog_thought_insection")
      * @param type $section
      * @param type $slug
      */
-    public function oldThoughtsAction($section = '', $slug = '', $format = 'html'){
+    public function oldThoughtsAction($section = '', $slug = '', $format = 'html', $num='00'){
         $url = $this->generateUrl('immablog_thought',array('slug'=>$slug, '_format'=>$format));
         return $this->redirect($url, 301);
     }

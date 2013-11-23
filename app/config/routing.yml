@@ -1,8 +1,8 @@
-nacho_brito_spam_filter:
-    resource: "@NachoBritoSpamFilterBundle/Controller/"
+nacho_brito_thoughts:
+    resource: "@NachoBritoThoughtsBundle/Controller/"
     type:     annotation
     prefix:   /
-
+    
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     
@@ -16,10 +16,6 @@ fos_comment_api:
     prefix: /api
     defaults: { _format: html }    
 
-nacho_brito_thoughts:
-    resource: "@NachoBritoThoughtsBundle/Controller/"
-    type:     annotation
-    prefix:   /
     
 #fos_user_register:
 #    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"

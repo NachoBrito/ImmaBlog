@@ -1,0 +1,37 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Thread list</h1>
+
+    <table class="records_list table table-hover">
+        <thead>
+            <tr>
+                <th>Permalink</th>
+                <th>Iscommentable</th>
+                <th>Numcomments</th>
+                <th>Lastcommentat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('th_show', { 'id': entity.id }) }}">{{ entity.permalink }}</a></td>
+                <td>{{ entity.isCommentable }}</td>
+                <td>{{ entity.numComments }}</td>
+                <td>{% if entity.lastCommentAt %}{{ entity.lastCommentAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.id }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('th_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% endblock %}

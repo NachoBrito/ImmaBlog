@@ -6,14 +6,18 @@
 {% endblock %}
 
 {% block body %}
+<div id="home-author-left">        
+    {% include 'NachoBritoThoughtsBundle:Default:author.html.twig'%}
+</div>
 <div class="row-fluid" id="immablog-main">
     <div class="span12">
         <div class="row-fluid">
-            <div class="span9" id="immablog-thoughts">
-
+            <div class="span8 offset2" id="immablog-thoughts">
+                <div id="home-author-top">        
+                    {% include 'NachoBritoThoughtsBundle:Default:author.html.twig'%}
+                </div>
                 {% if thoughts %}
                 {% for entry in thoughts %}
-
                 <div class="home_thought">
                     <p class='muted'>
                         {{entry.created|date()}}
@@ -23,21 +27,14 @@
                         <p>{{ entry.abstractHTML | raw }}</p>
                     </a>
                 </div>               
-
                 {% endfor %}
                 {% endif %}
-
             </div>
             <div class="span3" >
 
             </div>
         </div>
-
-
-
-
-
-
     </div>
 </div>
+
 {% endblock %}

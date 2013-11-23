@@ -97,6 +97,7 @@ swiftmailer:
     host:      %mailer_host%
     username:  %mailer_user%
     password:  %mailer_password%
+    encryption: %mailer_encryption%
     spool:     { type: memory }
 
 # app/config/config.yml
@@ -126,7 +127,8 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: NachoBrito\ThoughtsBundle\Entity\User  
-
+    service:
+        user_manager: immablog.user_manager
     
 sensio_framework_extra:
     view:
@@ -154,5 +156,5 @@ fos_comment:
 #            comment: fos_comment.spam_detection.comment.akismet
             
 ornicar_akismet:
-    api_key:        ab25cdce3d38
-    url:            http://www.nachobrito.com
+    api_key:        %akismet_api_key%
+    url:            %akismet_site_url%

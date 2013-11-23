@@ -6,6 +6,24 @@ li{
     line-height: 1.4em;
     margin-bottom: 1em;
 }
+#home-author-top{
+    text-align: right;
+}
+#home-author-left{
+    width: 26%;
+    min-width: 300px;
+    height: 100%;    
+    position: fixed;
+    left:0;
+    top:0;
+}
+#home-author-left #author-container{
+    text-align: right;
+    position: absolute;
+    top: 100px;
+    width: 180px;
+    margin: 0 auto;
+}
 #left-col{
     text-align: right;
 }
@@ -17,9 +35,7 @@ li{
 #social-links a:hover{
     text-decoration:none;
 }
-#immablog-main{
-    margin-top:100px;
-}
+
 #lnk-logo{}
 #lnk-logo:hover,#lnk-logo:hover #logo {
     text-decoration: none;
@@ -93,4 +109,53 @@ li{
 }
 #fos_comment_thread .fos_comment_comment_reply{
     text-align: right;
+}
+
+/* #### Mobile Phones Portrait #### 
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  
+}
+*/
+/* #### Mobile Phones Landscape #### 
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+  
+}
+*/
+/* #### Mobile Phones Portrait or Landscape #### 
+@media screen and (max-device-width: 640px){
+  
+}
+*/
+/* #### iPhone 4+ Portrait or Landscape ####
+@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
+  
+}
+*/
+/* #### Tablets Portrait or Landscape #### 
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+}
+*/
+@media screen and (max-width: 1024px){
+    #home-author-top{
+        display: block;
+    }
+    #home-author-left{
+        display: none;
+    }
+    #immablog-main{
+        margin-top:10px;
+    }    
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px){
+    #home-author-top{
+        display: none;
+    }
+    #home-author-left{
+        display: block;
+    }
+    #immablog-main{
+        margin-top:100px;
+    }     
 }
